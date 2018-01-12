@@ -1,0 +1,3 @@
+[submodule "marlib"]
+	path = marlib
+	url = https://github.com/okamumu/marlib.git
