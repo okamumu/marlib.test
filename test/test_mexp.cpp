@@ -12,7 +12,7 @@ void test_mexp1() {
   dense_matrix<double,int> MA(3,3,{-3,2,1,1,-5,3,2,3,-4});
   dense_matrix<double,int> ME(3,3);
 
-  mexp_pade(NoTrans, MA, ME, 1.0e-8);
+  mexp_pade(NoTrans, MA, 1.0, ME, 1.0e-8);
 
   std::cout << MA << std::endl;
   std::cout << ME << std::endl;
@@ -24,7 +24,7 @@ void test_mexp1_2() {
   dense_matrix<double,int> MA(3,3,{-3,2,1,1,-5,3,2,3,-4});
   dense_matrix<double,int> ME(3,3);
 
-  mexp_pade(Trans, MA, ME, 1.0e-8);
+  mexp_pade(Trans, MA, 1.0, ME, 1.0e-8);
 
   std::cout << MA << std::endl;
   std::cout << ME << std::endl;
