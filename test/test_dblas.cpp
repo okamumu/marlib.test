@@ -95,6 +95,7 @@ void test_gesv1() {
   std::cout << B << std::endl;
 
   dense_matrix<double,int> C1(3,3);
+  C1 = 0;
   std::cout << C1 << std::endl;
 
   // std::cout << C1.gesv(A, B) << std::endl;
@@ -114,6 +115,7 @@ void test_gesv2() {
   std::cout << B << std::endl;
 
   dense_matrix<double,int> C1(3,2);
+  C1 = 0;
   std::cout << C1 << std::endl;
 
   // std::cout << C1.gesv(A, B) << std::endl;
@@ -209,10 +211,12 @@ void test0() {
   // std::cout << *ptr_a << std::endl;
 
   array<double> a(3);
-  array<double> b = a;
-
   a[0] = 10;
+  a[1] = 1;
+  a[2] = 1000;
   std::cout << a << std::endl;
+
+  array<double> b = a;
   std::cout << b << std::endl;
 
   b[1] = 10;
@@ -268,6 +272,8 @@ void test0() {
 
   std::cout << iamax(z) << std::endl;
 
+  std::cout << "matrix" << std::endl;
+
   dense_matrix<double,int> m1(10,12);
 
   m1 = 1;
@@ -285,7 +291,7 @@ void test0() {
   dense_matrix<double,int> m3 = m1.clone();
   std::cout << m3 << std::endl;
 
-  std::cout << m3(range<int>(0,5),range<int>(1,3)) << std::endl;
+  std::cout << m3(range<int>(1,5),range<int>(1,3)) << std::endl;
 
   std::cout << m1 + m3 << std::endl;
   std::cout << m1 - m3 << std::endl;
@@ -294,6 +300,7 @@ void test0() {
 
   std::cout << m1 << std::endl;
 
+  std::cout << "matrix" << std::endl;
   vector<double,int> xv = {1,2,3,4,5,6,7,8,9,10,11,12};
   std::cout << xv << std::endl;
 
