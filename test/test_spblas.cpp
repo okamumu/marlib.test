@@ -159,6 +159,43 @@ void test_mkcsr8() {
   std::cout << d << std::endl;
 }
 
+void test_arnoldi1() {
+  std::cout << "arnoldi1" << std::endl;
+  dense_matrix<double,int> A(4, 4, {1,2,1,4,10,5,7,8,9,7,11,100,1,3,2,5});
+  std::cout << A << std::endl;
+
+  vector<double,int> x = {1,2,3,4};
+
+  double beta;
+  double rnorm;
+  dense_matrix<double,int> H(2,2);
+  dense_matrix<double,int> V(4,2);
+  arnoldi(NoTrans, A, x, H, V, beta, rnorm, double(1.0e-8), size_type(1));
+
+  std::cout << H << std::endl;
+  std::cout << V << std::endl;
+  std::cout << beta << std::endl;
+}
+
+void test_arnoldi2() {
+  std::cout << "arnoldi2" << std::endl;
+  dense_matrix<double,int> A(4, 4, {1,2,1,4,10,5,7,8,9,7,11,100,1,3,2,5});
+  csr_matrix<double,int> spA = A;
+  std::cout << spA << std::endl;
+
+  vector<double,int> x = {1,2,3,4};
+
+  double beta;
+  double rnorm;
+  dense_matrix<double,int> H(2,2);
+  dense_matrix<double,int> V(4,2);
+  arnoldi(NoTrans, spA, x, H, V, beta, rnorm, double(1.0e-8), size_type(1));
+
+  std::cout << H << std::endl;
+  std::cout << V << std::endl;
+  std::cout << beta << std::endl;
+}
+
 int main() {
   test_mkcsr1();
   test_mkcsr2();
@@ -168,4 +205,7 @@ int main() {
   test_mkcsr6();
   test_mkcsr7();
   test_mkcsr8();
+
+  test_arnoldi1();
+  test_arnoldi2();
 }
