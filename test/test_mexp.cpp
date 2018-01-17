@@ -225,6 +225,43 @@ void test_mexp9() {
   std::cout << mexp_unif(Trans, MP, qv, pois, x, y, 0.0) << std::endl;
 }
 
+void test_mpow1() {
+  std::cout << "mpow1" << std::endl;
+
+  dense_matrix<double,int> MA(3,3,{-3,2,1,1,-5,3,2,3,-4});
+  dense_matrix<double,int> ME(3,3);
+
+  auto MP = MA.clone();
+  auto qv = damax(MA.diag()) * 1.01;
+  MP /= qv;
+  MP.diag() += 1;
+
+  std::cout << MP << std::endl;
+
+  mpow(NoTrans, MP, 100, ME);
+
+  std::cout << ME << std::endl;
+}
+
+void test_mpow2() {
+  std::cout << "mpow2" << std::endl;
+
+  dense_matrix<double,int> MA(3,3,{-3,2,1,1,-5,3,2,3,-4});
+  dense_matrix<double,int> ME(3,3);
+  csr_matrix<double,int> spA = MA;
+
+  auto MP = spA.clone();
+  auto qv = damax(spA.diag()) * 1.01;
+  MP /= qv;
+  MP.diag() += 1;
+
+  std::cout << MP << std::endl;
+
+  mpow(NoTrans, MP, 100, ME);
+
+  std::cout << ME << std::endl;
+}
+
 int main() {
   test_mexp1();
   test_mexp1_2();
@@ -236,4 +273,7 @@ int main() {
   test_mexp7();
   test_mexp8();
   test_mexp9();
+
+  test_mpow1();
+  test_mpow2();
 }

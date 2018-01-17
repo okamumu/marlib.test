@@ -21,7 +21,8 @@ OBJS = marlib/src/dblas.o \
 	marlib/src/gaussinte.o \
 	marlib/src/gsstep.o \
 	marlib/src/markovst.o \
-	marlib/src/arnoldi.o
+	marlib/src/arnoldi.o \
+	marlib/src/mpow.o
 TEST_DBLAS = test/test_dblas.o
 TEST_SPBLAS = test/test_spblas.o
 TEST_POISSON = test/test_poisson.o
